@@ -29,22 +29,20 @@ import {
  */
 
 const SEAFOOD_IMAGES = {
-  hero: "https://images.unsplash.com/photo-1467003909585-2f8a7270028d?auto=format&fit=crop&q=80&w=2000",
+  hero: "food-8.jpg",
   logo: "/logo.png",
-  basket: "https://placehold.co/800x600/e2e8f0/1e293b?text=Seafood+Basket",
-  fish: "https://placehold.co/800x600/e2e8f0/1e293b?text=Fish+Dish",
-  crayfish: "https://placehold.co/800x600/e2e8f0/1e293b?text=Crayfish+Platter",
-  oysters: "https://placehold.co/800x600/e2e8f0/1e293b?text=Fresh+Oysters",
-  story:
-    "https://placehold.co/1200x800/e2e8f0/1e293b?text=Fishermen+Story+Image",
-  interior:
-    "https://placehold.co/1200x800/e2e8f0/1e293b?text=Restaurant+Interior",
+  basket: "/seafood-basket.webp",
+  fish: "/fish-dish.jpg",
+  crayfish: "/crayfish-platter.jpg",
+  oysters: "/fresh-oysters.png",
+  story: "fisherman.jpg",
+  interior: "/restaurant-interior.webp",
   chef: "https://placehold.co/800x800/e2e8f0/1e293b?text=Head+Chef",
-  collage1: "https://placehold.co/800x800/e2e8f0/1e293b?text=Grilled+Octopus",
-  collage2: "https://placehold.co/600x800/e2e8f0/1e293b?text=Seafood+Feast",
-  collage3: "https://placehold.co/800x600/e2e8f0/1e293b?text=Fresh+Prawns",
-  collage4: "https://placehold.co/600x600/e2e8f0/1e293b?text=Chili+Mussels",
-  collage5: "https://placehold.co/1200x600/e2e8f0/1e293b?text=Plating+Detail",
+  collage1: "food-1.jpg",
+  collage2: "food-2.jpg",
+  collage3: "food-3.jpg",
+  collage4: "food-4.jpg",
+  collage5: "food-9.jpg",
 };
 
 // Define interfaces to fix TypeScript errors
