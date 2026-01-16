@@ -37,7 +37,7 @@ const SEAFOOD_IMAGES = {
   oysters: "/fresh-oysters.png",
   story: "fisherman.jpg",
   interior: "/restaurant-interior.webp",
-  chef: "https://placehold.co/800x800/e2e8f0/1e293b?text=Head+Chef",
+  chef: "chef.jpg",
   collage1: "food-1.jpg",
   collage2: "food-2.jpg",
   collage3: "food-3.jpg",
