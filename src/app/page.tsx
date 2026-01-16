@@ -16,7 +16,7 @@ import {
   ArrowRight,
   Info,
   ShoppingBag,
-  ArrowLeft, // Added ArrowLeft for the slider
+  ArrowLeft,
 } from "lucide-react";
 
 /**
@@ -29,8 +29,8 @@ import {
  */
 
 const SEAFOOD_IMAGES = {
-  hero: "https://placehold.co/2000x1200/e2e8f0/1e293b?text=Hero+Ocean+Image",
-  logo: "https://placehold.co/200x200/0ea5e9/ffffff?text=Logo",
+  hero: "https://images.unsplash.com/photo-1467003909585-2f8a7270028d?auto=format&fit=crop&q=80&w=2000",
+  logo: "/logo.png",
   basket: "https://placehold.co/800x600/e2e8f0/1e293b?text=Seafood+Basket",
   fish: "https://placehold.co/800x600/e2e8f0/1e293b?text=Fish+Dish",
   crayfish: "https://placehold.co/800x600/e2e8f0/1e293b?text=Crayfish+Platter",
@@ -281,11 +281,14 @@ export default function App() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState(0);
   const [currentGallerySlide, setCurrentGallerySlide] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   // Handle scroll effects for navbar
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+      setScrollY(currentScrollY);
 
       const sections = ["home", "menu", "story", "gallery", "contact"];
       for (const section of sections) {
@@ -350,17 +353,22 @@ export default function App() {
               />
             </div>
 
-            <span
-              className={`text-xl md:text-2xl font-light tracking-widest uppercase ${
-                scrolled ? "text-slate-900" : "text-slate-900 lg:text-white"
-              }`}
-            >
-              Kraken:{" "}
-              <span className="font-bold hidden sm:inline">
+            <div className="flex flex-col">
+              <span
+                className={`text-xl md:text-2xl font-bold tracking-widest uppercase leading-none ${
+                  scrolled ? "text-slate-900" : "text-slate-900 lg:text-white"
+                }`}
+              >
+                Kraken
+              </span>
+              <span
+                className={`text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase ${
+                  scrolled ? "text-sky-600" : "text-slate-500 lg:text-sky-100"
+                }`}
+              >
                 Seafood Kitchen
               </span>
-              <span className="font-bold sm:hidden">Seafood</span>
-            </span>
+            </div>
           </div>
 
           {/* Desktop Nav */}
@@ -448,13 +456,28 @@ export default function App() {
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
       >
-        <div className="absolute inset-0 z-0">
-          <img
-            src={SEAFOOD_IMAGES.hero}
-            alt="Ocean waves"
+        <div
+          className="absolute inset-0 z-0 h-[120%]"
+          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={SEAFOOD_IMAGES.hero}
             className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-slate-50/90"></div>
+          >
+            <source src="/seafood-hero-2.mp4" type="video/mp4" />
+            <img
+              src={SEAFOOD_IMAGES.hero}
+              alt="Ocean waves"
+              className="w-full h-full object-cover"
+            />
+          </video>
+
+          {/* Reverted overlay with blended bottom edge for text visibility and transition */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-slate-50/90"></div>
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mt-20">
